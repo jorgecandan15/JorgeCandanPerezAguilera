@@ -1,0 +1,670 @@
+/* ===================== */
+/*  VARIABLES GLOBALES  */
+/* ===================== */
+:root {
+    --bg-color: #131313;
+    --card-bg: #1f1e27;
+    --text-white: #fff;
+    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+    /* Colores Específicos */
+    --color-react: #61dafb;
+    --color-sql: #cbe6ff;
+    --color-js: #f7df1e;
+    --color-python: #387EB8;
+    --color-python-text: #FFE052;
+    --color-java: #0074BD;
+    --color-java-btn: #EA2D2E;
+    --color-html: #E44D26;
+    --color-html-btn: #F16529;
+    --color-kotlin: #7f52ff;
+    --color-kotlin-btn: #c711e1;
+}
+
+/* ===================== */
+/*  ESTILOS GENERALES   */
+/* ===================== */
+body {
+    background-color: var(--bg-color);
+    background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 3px 3px;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: var(--font-main);
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-white);
+}
+
+/* ===================== */
+/*  ANIMACIONES COMUNES */
+/* ===================== */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes wobble-hor-bottom {
+
+    0%,
+    100% {
+        transform: translateX(0%);
+    }
+
+    15% {
+        transform: translateX(-30px) rotate(-6deg);
+    }
+
+    30% {
+        transform: translateX(15px) rotate(6deg);
+    }
+
+    45% {
+        transform: translateX(-15px) rotate(-3.6deg);
+    }
+
+    60% {
+        transform: translateX(9px) rotate(2.4deg);
+    }
+
+    75% {
+        transform: translateX(-6px) rotate(-1.2deg);
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===================== */
+/*  NAVBAR              */
+/* ===================== */
+header {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.nav {
+    position: relative;
+    width: 400px;
+    height: 60px;
+}
+
+.outline {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.rect {
+    stroke-dashoffset: 5;
+    stroke-dasharray: 0 0 10 40 10 40;
+    transition: 0.5s;
+    stroke: var(--text-white);
+}
+
+.container {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5em;
+}
+
+.container:hover .outline .rect {
+    transition: 999999s;
+    stroke-dashoffset: 1;
+    stroke-dasharray: 0;
+}
+
+.btn {
+    padding: 0.5em 1.5em;
+    color: var(--text-white);
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.btn:hover {
+    background: #fff3;
+}
+
+.btn:hover~.outline .rect {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 0 0 10 40 10 40;
+    transition: 0.5s !important;
+}
+
+/* Navbar Hover Effects Specific Positions
+   Using nth-child logic from original */
+.btn:nth-child(1):hover~svg .rect {
+    stroke-dasharray: 0 2 8 73.3 8 10.7;
+}
+
+.btn:nth-child(2):hover~svg .rect {
+    stroke-dasharray: 0 12.6 9.5 49.3 9.5 31.6;
+}
+
+.btn:nth-child(3):hover~svg .rect {
+    stroke-dasharray: 0 24.5 8.5 27.5 8.5 55.5;
+}
+
+.btn:nth-child(4):hover~svg .rect {
+    stroke-dasharray: 0 34.7 6.9 10.2 6.9 76;
+}
+
+/* ===================== */
+/*  PRESENTACION        */
+/* ===================== */
+.presentacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 8%;
+    flex-wrap: wrap;
+}
+
+.texto {
+    max-width: 600px;
+    border-radius: 20px;
+    padding-left: 20px;
+}
+
+.texto h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.gris {
+    color: #6c757d;
+}
+
+.nombre {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: #bbb;
+}
+
+.botones {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.imagen {
+    transition: 0.6s ease;
+}
+
+.imagen img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.imagen:hover {
+    transform: scale(1.1);
+}
+
+/* ===================== */
+/*  CARDS SHARED        */
+/* ===================== */
+.cards-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cards-container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Common Card Styles */
+.card,
+.card1,
+.card3,
+.card4,
+.card5,
+.card6,
+.card7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 700;
+    font-family: var(--font-main);
+    padding: 30px 20px;
+    border-radius: 45px;
+    width: 260px;
+    transition: transform 0.3s ease;
+}
+
+/* Common SVG Logo Styles in Cards */
+.App-logo,
+.App-logo1,
+.App-logo3,
+.App-logo4,
+.App-logo5,
+.App-logo6,
+.App-logo7 {
+    pointer-events: none;
+    margin-bottom: 10px;
+}
+
+/* Common Button Styles */
+.App-button,
+.App-button3,
+.App-button4,
+.App-button5,
+.App-button6,
+.App-button7 {
+    padding: 10px 20px;
+    background-color: transparent;
+    font-family: var(--font-main);
+    font-size: 15px;
+    border-radius: 5em;
+    margin-top: 20px;
+    transition: 0.2s;
+    cursor: pointer;
+    font-weight: normal;
+    /* Buttons usually have normal weight vs bold cards */
+}
+
+/* ===================== */
+/*  SPECIFIC CARDS      */
+/* ===================== */
+
+/* SQL Card */
+.card {
+    background-color: var(--card-bg);
+    border: 3px solid var(--color-sql);
+    color: var(--color-sql);
+}
+
+.App-logo {
+    margin-top: -10px;
+}
+
+/* Ajuste espcifico */
+.App-button {
+    color: var(--color-sql);
+    border: 3px solid var(--color-sql);
+}
+
+.App-button:hover {
+    color: #1e2127;
+    background-color: var(--color-sql);
+}
+
+/* React Card */
+.card1 {
+    background-color: #1e2127;
+    /* Slightly diff bg per original */
+    border: 3px solid var(--color-react);
+    color: var(--color-sql);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo1 {
+        animation: App-logo-spin infinite 5s linear;
+    }
+}
+
+/* JavaScript Card */
+.card3 {
+    background-color: #25241c;
+    border: 3px solid var(--color-js);
+    color: var(--color-js);
+    padding: 30px 40px;
+    /* Specific padding */
+}
+
+.App-logo3 {
+    width: 120px;
+    height: 165px;
+    margin-bottom: 20px;
+    padding: 0 50px;
+}
+
+.App-button3 {
+    color: var(--color-js);
+    border: 3px solid var(--color-js);
+}
+
+.App-button3:hover {
+    color: #2e2d23;
+    background-color: var(--color-js);
+}
+
+/* Python Card */
+.card4 {
+    background-color: #191e24;
+    border: 3px solid var(--color-python);
+    color: white;
+    padding: 25px 5px;
+}
+
+.App-logo4 {
+    margin: -40px 0;
+    /* Specific margin */
+    width: 250px;
+    padding: 0 20px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo4 {
+        animation: App-logo-spin infinite 5s linear;
+    }
+}
+
+.python {
+    color: var(--color-python-text);
+}
+
+.App-button4 {
+    color: var(--color-python-text);
+    border: 3px solid var(--color-python-text);
+}
+
+.App-button4:hover {
+    color: #191e24;
+    background-color: var(--color-python-text);
+}
+
+/* Java Card */
+.card5 {
+    background-color: var(--card-bg);
+    border: 3px solid var(--color-java);
+    color: var(--color-java);
+}
+
+.App-logo5 {
+    width: 140px;
+}
+
+.App-button5 {
+    color: var(--color-java-btn);
+    border: 3px solid var(--color-java-btn);
+}
+
+.App-button5:hover {
+    color: var(--card-bg);
+    background-color: var(--color-java-btn);
+}
+
+/* HTML5 Card */
+.card6 {
+    background-color: var(--card-bg);
+    border: 3px solid var(--color-html);
+    color: var(--color-html);
+}
+
+.App-logo6 {
+    width: 140px;
+}
+
+.App-button6 {
+    color: var(--color-html-btn);
+    border: 3px solid var(--color-html-btn);
+}
+
+.App-button6:hover {
+    color: var(--card-bg);
+    background-color: var(--color-html-btn);
+}
+
+/* Kotlin Card */
+.card7 {
+    background-color: var(--card-bg);
+    border: 3px solid var(--color-kotlin);
+    color: var(--color-kotlin);
+}
+
+.App-logo7 {
+    width: 130px;
+}
+
+.App-button7 {
+    color: var(--color-kotlin-btn);
+    border: 3px solid var(--color-kotlin-btn);
+}
+
+.App-button7:hover {
+    color: var(--card-bg);
+    background-color: var(--color-kotlin-btn);
+}
+
+/* Common Hover Effects */
+@media (prefers-reduced-motion: no-preference) {
+
+    .card:hover .App-logo,
+    .card3:hover .App-logo3,
+    .card5:hover .App-logo5,
+    .card6:hover .App-logo6,
+    .card7:hover .App-logo7 {
+        animation: wobble-hor-bottom 0.9s ease-in both;
+    }
+}
+
+/* ===================== */
+/*  LOADER              */
+/* ===================== */
+#loader-screen {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+}
+
+#loader-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader {
+    width: 130px;
+    height: 170px;
+    position: relative;
+}
+
+.loader::before,
+.loader::after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    bottom: 30px;
+    left: 15px;
+    z-index: 1;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 20px solid #1b2a33;
+    transform: scale(0);
+    transition: all 0.2s ease;
+}
+
+.loader::after {
+    border-right: 15px solid transparent;
+    border-bottom: 20px solid #162229;
+}
+
+.loader .getting-there {
+    width: 120%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: -7%;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.loader .binary {
+    width: 100%;
+    height: 140px;
+    display: block;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.loader .binary::before,
+.loader .binary::after {
+    font-size: 24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.loader .binary:nth-child(1)::before {
+    content: "0";
+    animation: a 1.1s linear infinite;
+}
+
+.loader .binary:nth-child(1)::after {
+    content: "0";
+    animation: b 1.3s linear infinite;
+}
+
+.loader .binary:nth-child(2)::before {
+    content: "1";
+    animation: c 0.9s linear infinite;
+}
+
+.loader .binary:nth-child(2)::after {
+    content: "1";
+    animation: d 0.7s linear infinite;
+}
+
+.loader.JS_on::before,
+.loader.JS_on::after {
+    transform: scale(1);
+}
+
+/* Animation Keyframes for Loader */
+@keyframes a {
+    0% {
+        transform: translate(30px, 0) rotate(30deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(30px, 150px) rotate(-50deg);
+        opacity: 1;
+    }
+}
+
+@keyframes b {
+    0% {
+        transform: translate(50px, 0) rotate(-40deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(40px, 150px) rotate(80deg);
+        opacity: 1;
+    }
+}
+
+@keyframes c {
+    0% {
+        transform: translate(70px, 0) rotate(10deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(60px, 150px) rotate(70deg);
+        opacity: 1;
+    }
+}
+
+@keyframes d {
+    0% {
+        transform: translate(30px, 0) rotate(-50deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(45px, 150px) rotate(30deg);
+        opacity: 1;
+    }
+}
+
+/* ===================== */
+/*  RESPONSIVE          */
+/* ===================== */
+@media (max-width: 768px) {
+    .presentacion {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .texto {
+        padding-left: 0;
+        margin-bottom: 40px;
+    }
+
+    .texto h1 {
+        font-size: 2rem;
+    }
+
+    .botones {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .imagen img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    header {
+        margin-top: 10px;
+    }
+
+    .nav {
+        transform: scale(0.85);
+        transform-origin: top center;
+    }
+}
+
+@media (max-width: 400px) {
+    .nav {
+        transform: scale(0.7);
+    }
+
+    .texto h1 {
+        font-size: 1.8rem;
+    }
+}
