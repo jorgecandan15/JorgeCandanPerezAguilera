@@ -21,7 +21,6 @@ a {
 /* ===================== */
 header {
     display: flex;
-    position: fixed;
     justify-content: center;
     margin-top: 20px;
 }
