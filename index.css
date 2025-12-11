@@ -20,13 +20,13 @@ a {
 /*  NAVBAR              */
 /* ===================== */
 header {
-    display: flex;
+    display: fixed;
     justify-content: center;
     margin-top: 20px;
 }
 
 .nav {
-    position: fixed;
+    position: relative;
     width: 400px;
     height: 60px;
 }
