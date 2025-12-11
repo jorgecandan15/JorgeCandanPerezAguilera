@@ -1,93 +1,19 @@
 /* ===================== */
-/*  VARIABLES GLOBALES  */
-/* ===================== */
-:root {
-    --bg-color: #131313;
-    --card-bg: #1f1e27;
-    --text-white: #fff;
-    --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
-    /* Colores Específicos */
-    --color-react: #61dafb;
-    --color-sql: #cbe6ff;
-    --color-js: #f7df1e;
-    --color-python: #387EB8;
-    --color-python-text: #FFE052;
-    --color-java: #0074BD;
-    --color-java-btn: #EA2D2E;
-    --color-html: #E44D26;
-    --color-html-btn: #F16529;
-    --color-kotlin: #7f52ff;
-    --color-kotlin-btn: #c711e1;
-}
-
-/* ===================== */
 /*  ESTILOS GENERALES   */
 /* ===================== */
 body {
-    background-color: var(--bg-color);
+    background-color: #131313;
     background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
     background-size: 3px 3px;
     margin: 0;
     overflow-x: hidden;
-    font-family: var(--font-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    padding: 0;
 }
 
 a {
     text-decoration: none;
-    color: var(--text-white);
-}
-
-/* ===================== */
-/*  ANIMACIONES COMUNES */
-/* ===================== */
-.hidden {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s ease, transform 1s ease;
-}
-
-.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@keyframes wobble-hor-bottom {
-
-    0%,
-    100% {
-        transform: translateX(0%);
-    }
-
-    15% {
-        transform: translateX(-30px) rotate(-6deg);
-    }
-
-    30% {
-        transform: translateX(15px) rotate(6deg);
-    }
-
-    45% {
-        transform: translateX(-15px) rotate(-3.6deg);
-    }
-
-    60% {
-        transform: translateX(9px) rotate(2.4deg);
-    }
-
-    75% {
-        transform: translateX(-6px) rotate(-1.2deg);
-    }
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+    color: #fff;
 }
 
 /* ===================== */
@@ -115,7 +41,7 @@ header {
     stroke-dashoffset: 5;
     stroke-dasharray: 0 0 10 40 10 40;
     transition: 0.5s;
-    stroke: var(--text-white);
+    stroke: #fff;
 }
 
 .container {
@@ -135,7 +61,7 @@ header {
 
 .btn {
     padding: 0.5em 1.5em;
-    color: var(--text-white);
+    color: #fff;
     cursor: pointer;
     transition: 0.1s;
 }
@@ -150,8 +76,7 @@ header {
     transition: 0.5s !important;
 }
 
-/* Navbar Hover Effects Specific Positions
-   Using nth-child logic from original */
+/* Navbar Hover Effects Specific Positions */
 .btn:nth-child(1):hover~svg .rect {
     stroke-dasharray: 0 2 8 73.3 8 10.7;
 }
@@ -204,6 +129,47 @@ header {
     color: #bbb;
 }
 
+/* Texto del typewriter */
+#typewriter {
+    display: inline-block;
+    border-right: 2px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: cursorBlink 1s infinite;
+}
+
+/* LETRA CON BLUR SUAVE */
+.letter {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(6px);
+    animation: blurIn 0.4s ease-out forwards;
+}
+
+/* Animación blur → limpio */
+@keyframes blurIn {
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+/* Cursor parpadeante */
+@keyframes cursorBlink {
+    0% {
+        border-color: white;
+    }
+
+    50% {
+        border-color: transparent;
+    }
+
+    100% {
+        border-color: white;
+    }
+}
+
 .botones {
     display: flex;
     gap: 20px;
@@ -211,12 +177,13 @@ header {
 }
 
 .imagen {
-    transition: 0.6s ease;
+    transition: 1s ease;
+    /* Match entry animation duration */
 }
 
 .imagen img {
     width: 300px;
-    border-radius: 10px;
+    border-radius: 42% 58% 55% 45% / 48% 40% 60% 52%;
 }
 
 .imagen:hover {
@@ -224,247 +191,141 @@ header {
 }
 
 /* ===================== */
-/*  CARDS SHARED        */
+/*  FLECHA ABAJO         */
 /* ===================== */
-.cards-section {
-    width: 100%;
+.flechaAbajo {
     display: flex;
-    justify-content: center;
-}
-
-.cards-container {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-/* Common Card Styles */
-.card,
-.card1,
-.card3,
-.card4,
-.card5,
-.card6,
-.card7 {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 26px;
-    font-weight: 700;
-    font-family: var(--font-main);
-    padding: 30px 20px;
-    border-radius: 45px;
-    width: 260px;
-    transition: transform 0.3s ease;
 }
 
-/* Common SVG Logo Styles in Cards */
-.App-logo,
-.App-logo1,
-.App-logo3,
-.App-logo4,
-.App-logo5,
-.App-logo6,
-.App-logo7 {
-    pointer-events: none;
-    margin-bottom: 10px;
+a {
+    text-decoration: none;
 }
 
-/* Common Button Styles */
-.App-button,
-.App-button3,
-.App-button4,
-.App-button5,
-.App-button6,
-.App-button7 {
-    padding: 10px 20px;
-    background-color: transparent;
-    font-family: var(--font-main);
-    font-size: 15px;
-    border-radius: 5em;
-    margin-top: 20px;
-    transition: 0.2s;
-    cursor: pointer;
-    font-weight: normal;
-    /* Buttons usually have normal weight vs bold cards */
+.main__action .main__scroll-box {
+    animation: scroll-down 3s infinite;
 }
 
-/* ===================== */
-/*  SPECIFIC CARDS      */
-/* ===================== */
-
-/* SQL Card */
-.card {
-    background-color: var(--card-bg);
-    border: 3px solid var(--color-sql);
-    color: var(--color-sql);
+.main__scroll-box svg {
+    width: 80px;
+    height: 80px;
 }
 
-.App-logo {
-    margin-top: -10px;
-}
 
-/* Ajuste espcifico */
-.App-button {
-    color: var(--color-sql);
-    border: 3px solid var(--color-sql);
-}
+/* Animate scroll icon */
+@keyframes scroll-down {
 
-.App-button:hover {
-    color: #1e2127;
-    background-color: var(--color-sql);
-}
+    0%,
+    100% {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
 
-/* React Card */
-.card1 {
-    background-color: #1e2127;
-    /* Slightly diff bg per original */
-    border: 3px solid var(--color-react);
-    color: var(--color-sql);
-}
+    35% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo1 {
-        animation: App-logo-spin infinite 5s linear;
+
+    70% {
+        transform: translateY(-1rem);
+        opacity: 0;
     }
 }
 
-/* JavaScript Card */
-.card3 {
-    background-color: #25241c;
-    border: 3px solid var(--color-js);
-    color: var(--color-js);
-    padding: 30px 40px;
-    /* Specific padding */
+/* ===================== */
+/*  Sobre Mi             */
+/* ===================== */
+
+.about-section {
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 40px;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
 
-.App-logo3 {
-    width: 120px;
-    height: 165px;
-    margin-bottom: 20px;
-    padding: 0 50px;
+/*========== IMAGEN ==========*/
+
+.about-image {
+    flex-shrink: 0;
+    transition: 1s ease;
+    /* Match entry animation duration */
 }
 
-.App-button3 {
-    color: var(--color-js);
-    border: 3px solid var(--color-js);
+.about-image:hover {
+    transform: scale(1.1);
 }
 
-.App-button3:hover {
-    color: #2e2d23;
-    background-color: var(--color-js);
+.about-image img {
+    width: 330px;
+    height: 440px;
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
 }
 
-/* Python Card */
-.card4 {
-    background-color: #191e24;
-    border: 3px solid var(--color-python);
+/*========== CONTENIDO ==========*/
+
+.about-content {
+    flex: 1;
+}
+
+.about-content h2 {
+    font-size: 50px;
+    font-weight: 800;
+    margin-bottom: 25px;
     color: white;
-    padding: 25px 5px;
 }
 
-.App-logo4 {
-    margin: -40px 0;
-    /* Specific margin */
-    width: 250px;
-    padding: 0 20px;
+.about-content h3 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo4 {
-        animation: App-logo-spin infinite 5s linear;
-    }
+.about-content h4 {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
 }
 
-.python {
-    color: var(--color-python-text);
+.about-content .info {
+    margin: 8px 0 15px 0;
+    color: #ffffff;
+    line-height: 1.6;
+    max-width: 700px;
 }
 
-.App-button4 {
-    color: var(--color-python-text);
-    border: 3px solid var(--color-python-text);
+/*========== HABILIDADES ==========*/
+
+.skills {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
-.App-button4:hover {
-    color: #191e24;
-    background-color: var(--color-python-text);
+.skill {
+    padding: 8px 18px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.06);
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    transition: 0.5s ease;
+    cursor: default;
 }
 
-/* Java Card */
-.card5 {
-    background-color: var(--card-bg);
-    border: 3px solid var(--color-java);
-    color: var(--color-java);
-}
-
-.App-logo5 {
-    width: 140px;
-}
-
-.App-button5 {
-    color: var(--color-java-btn);
-    border: 3px solid var(--color-java-btn);
-}
-
-.App-button5:hover {
-    color: var(--card-bg);
-    background-color: var(--color-java-btn);
-}
-
-/* HTML5 Card */
-.card6 {
-    background-color: var(--card-bg);
-    border: 3px solid var(--color-html);
-    color: var(--color-html);
-}
-
-.App-logo6 {
-    width: 140px;
-}
-
-.App-button6 {
-    color: var(--color-html-btn);
-    border: 3px solid var(--color-html-btn);
-}
-
-.App-button6:hover {
-    color: var(--card-bg);
-    background-color: var(--color-html-btn);
-}
-
-/* Kotlin Card */
-.card7 {
-    background-color: var(--card-bg);
-    border: 3px solid var(--color-kotlin);
-    color: var(--color-kotlin);
-}
-
-.App-logo7 {
-    width: 130px;
-}
-
-.App-button7 {
-    color: var(--color-kotlin-btn);
-    border: 3px solid var(--color-kotlin-btn);
-}
-
-.App-button7:hover {
-    color: var(--card-bg);
-    background-color: var(--color-kotlin-btn);
-}
-
-/* Common Hover Effects */
-@media (prefers-reduced-motion: no-preference) {
-
-    .card:hover .App-logo,
-    .card3:hover .App-logo3,
-    .card5:hover .App-logo5,
-    .card6:hover .App-logo6,
-    .card7:hover .App-logo7 {
-        animation: wobble-hor-bottom 0.9s ease-in both;
-    }
+.skill:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
 /* ===================== */
@@ -621,9 +482,56 @@ header {
 }
 
 /* ===================== */
-/*  RESPONSIVE          */
+/*  ANIMACIONES COMUNES */
 /* ===================== */
+/* Moved to end for specificity */
+.hidden {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(-30px);
+    transition: opacity 1s ease, transform 1s ease, filter 1s ease;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+/* ===================================== */
+/*        RESPONSIVE (Consolidated)       */
+/* ===================================== */
+
+/* ✅ Tablets */
+@media (max-width: 1096px) {
+    #imagenPresentacion {
+        width: 200px;
+        height: auto;
+    }
+
+    .about-section {
+        gap: 30px;
+        padding: 30px;
+    }
+
+    .about-image img {
+        width: 260px;
+        height: 350px;
+    }
+
+    .about-content h2 {
+        font-size: 40px;
+    }
+
+    .about-content h3 {
+        font-size: 26px;
+    }
+}
+
+/* ✅ Mobile Large */
 @media (max-width: 768px) {
+
+    /* Presentation */
     .presentacion {
         flex-direction: column;
         text-align: center;
@@ -657,9 +565,77 @@ header {
         transform: scale(0.85);
         transform-origin: top center;
     }
+
+    /* About Section */
+    .about-section {
+        gap: 20px;
+        padding: 25px;
+    }
+
+    .about-image img {
+        width: 200px;
+        height: 280px;
+    }
+
+    .about-content h2 {
+        font-size: 32px;
+    }
+
+    .about-content h3 {
+        font-size: 22px;
+    }
+
+    .about-content .info {
+        font-size: 14px;
+    }
+
+    .skill {
+        font-size: 12px;
+        padding: 6px 14px;
+    }
 }
 
+/* ✅ Mobile Small */
+@media (max-width: 480px) {
+    .about-section {
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .about-image img {
+        width: 160px;
+        height: 220px;
+    }
+
+    .about-content h2 {
+        font-size: 26px;
+    }
+
+    .about-content h3 {
+        font-size: 18px;
+    }
+
+    .about-content h4 {
+        font-size: 15px;
+    }
+
+    .about-content .info {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .skill {
+        font-size: 11px;
+        padding: 5px 12px;
+    }
+}
+
+/* ✅ Extra Small Screens */
 @media (max-width: 400px) {
+    .container div {
+        font-size: 10px;
+    }
+
     .nav {
         transform: scale(0.7);
     }
