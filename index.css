@@ -24,7 +24,7 @@ header {
     position: fixed;
     justify-content: center;
     margin-top: 20px;
-    top: 0;
+    z-index: 100;
 }
 
 .nav {
