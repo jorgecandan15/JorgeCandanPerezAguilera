@@ -17,6 +17,9 @@ Todo el contenido está en `regalos.json`. Para cada día:
 Cada cambio subido a la rama se despliega solo en Render.
 
 ## Modo prueba
+Con la variable `DESBLOQUEAR_TODO=1` en Render, todas las casillas se abren para cualquiera
+(útil mientras se prepara el contenido). Para activar el bloqueo por fecha, bórrala o ponla a `0`.
+
 `/?preview=CLAVE` abre todas las casillas (la clave está en la variable `PREVIEW_KEY` de Render).
 `/?preview=CLAVE&dia=10` simula que es 10 de diciembre. En modo prueba no se guarda nada.
 

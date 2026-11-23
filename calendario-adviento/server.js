@@ -11,6 +11,9 @@ const PUBLIC_DIR = path.join(__dirname, 'public');
 const DATA_FILE = path.join(__dirname, 'regalos.json');
 // Clave para probar el calendario con todas las casillas abiertas: /?preview=CLAVE
 const PREVIEW_KEY = process.env.PREVIEW_KEY || '';
+// Mientras se prepara el contenido: DESBLOQUEAR_TODO=1 abre todas las casillas para cualquiera.
+// Quitar la variable (o ponerla a 0) en Render para activar el bloqueo por fecha.
+const DESBLOQUEAR_TODO = process.env.DESBLOQUEAR_TODO === '1';
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -37,7 +40,7 @@ function aperturaDia(anio, dia) {
 function estadoCalendario(query) {
   const datos = cargarDatos();
   const anio = Number(datos.anio) || new Date().getUTCFullYear();
-  const preview = PREVIEW_KEY && query.get('preview') === PREVIEW_KEY;
+  const preview = DESBLOQUEAR_TODO || (PREVIEW_KEY && query.get('preview') === PREVIEW_KEY);
 
   let ahora = Date.now();
   if (preview && query.get('dia')) {
