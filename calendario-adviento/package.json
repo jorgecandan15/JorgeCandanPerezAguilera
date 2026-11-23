@@ -1,0 +1,13 @@
+{
+  "name": "calendario-adviento",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Calendario de Adviento online con casillas que se abren cada día de diciembre",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

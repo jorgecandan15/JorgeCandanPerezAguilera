@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f2a22">
+  <title>Calendario de Adviento</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Great+Vibes&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="nieve" aria-hidden="true"></canvas>
+
+  <main class="escena">
+    <header class="cabecera">
+      <p class="para" id="para">Para Lucía</p>
+      <h1 id="titulo">Calendario de Adviento</h1>
+      <p class="dedicatoria" id="dedicatoria"></p>
+      <div class="cuenta" id="cuenta" hidden>
+        <span class="cuenta-texto" id="cuentaTexto">Próxima casilla en</span>
+        <span class="cuenta-reloj" id="cuentaReloj">--:--:--</span>
+      </div>
+    </header>
+
+    <section class="tablero" aria-label="Calendario de Adviento">
+      <div class="tablero-marco">
+        <div class="guirnalda" aria-hidden="true"></div>
+        <div class="rejilla" id="rejilla">
+          <p class="cargando">Preparando las casillas…</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="pie">
+      <button class="boton-sonido" id="botonSonido" type="button" aria-pressed="true" title="Sonido">🔔</button>
+      <span id="pieTexto">Cada día a las 00:00 se abre una casilla nueva ✨</span>
+    </footer>
+  </main>
+
+  <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+  <div class="banner-prueba" id="bannerPrueba" hidden>Modo prueba · lo que abras aquí no se guarda</div>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-fondo" data-cerrar></div>
+    <article class="carta" role="dialog" aria-modal="true" aria-labelledby="cartaTitulo">
+      <button class="carta-cerrar" type="button" data-cerrar aria-label="Cerrar">×</button>
+      <div class="carta-sello" id="cartaNumero">1</div>
+      <p class="carta-fecha" id="cartaFecha">1 de diciembre</p>
+      <div class="carta-emoji" id="cartaEmoji">🎁</div>
+      <h2 class="carta-titulo" id="cartaTitulo">Regalo nº 1</h2>
+      <p class="carta-frase" id="cartaFrase"></p>
+      <div class="carta-separador" aria-hidden="true">❦</div>
+      <p class="carta-instruccion">Ahora busca en la caja el regalo <strong id="cartaInstruccion">nº 1</strong></p>
+      <button class="carta-boton" id="cartaBoton" type="button">¡A abrirlo! 🎁</button>
+    </article>
+  </div>
+
+  <canvas id="confeti" aria-hidden="true"></canvas>
+  <script src="app.js"></script>
+</body>
+</html>

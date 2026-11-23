@@ -1,0 +1,33 @@
+{
+  "anio": 2026,
+  "para": "Lucía",
+  "titulo": "El Calendario de Adviento de Lucía",
+  "dedicatoria": "24 días, 24 sorpresas. Una cada día… y ni una antes 😉",
+  "mensajeFinal": "¡Feliz Navidad, Lucía! Has abierto todas las casillas. Te quiero ❤️",
+  "regalos": [
+    { "dia": 1,  "emoji": "🎁", "titulo": "Regalo nº 1",  "frase": "Pronto escribiré aquí la pista del regalo nº 1." },
+    { "dia": 2,  "emoji": "🎁", "titulo": "Regalo nº 2",  "frase": "Pronto escribiré aquí la pista del regalo nº 2." },
+    { "dia": 3,  "emoji": "🎁", "titulo": "Regalo nº 3",  "frase": "Pronto escribiré aquí la pista del regalo nº 3." },
+    { "dia": 4,  "emoji": "🎁", "titulo": "Regalo nº 4",  "frase": "Pronto escribiré aquí la pista del regalo nº 4." },
+    { "dia": 5,  "emoji": "🎁", "titulo": "Regalo nº 5",  "frase": "Pronto escribiré aquí la pista del regalo nº 5." },
+    { "dia": 6,  "emoji": "🎁", "titulo": "Regalo nº 6",  "frase": "Pronto escribiré aquí la pista del regalo nº 6." },
+    { "dia": 7,  "emoji": "🎁", "titulo": "Regalo nº 7",  "frase": "Pronto escribiré aquí la pista del regalo nº 7." },
+    { "dia": 8,  "emoji": "🎁", "titulo": "Regalo nº 8",  "frase": "Pronto escribiré aquí la pista del regalo nº 8." },
+    { "dia": 9,  "emoji": "🎁", "titulo": "Regalo nº 9",  "frase": "Pronto escribiré aquí la pista del regalo nº 9." },
+    { "dia": 10, "emoji": "🎁", "titulo": "Regalo nº 10", "frase": "Pronto escribiré aquí la pista del regalo nº 10." },
+    { "dia": 11, "emoji": "🎁", "titulo": "Regalo nº 11", "frase": "Pronto escribiré aquí la pista del regalo nº 11." },
+    { "dia": 12, "emoji": "🎁", "titulo": "Regalo nº 12", "frase": "Pronto escribiré aquí la pista del regalo nº 12." },
+    { "dia": 13, "emoji": "🎁", "titulo": "Regalo nº 13", "frase": "Pronto escribiré aquí la pista del regalo nº 13." },
+    { "dia": 14, "emoji": "🎁", "titulo": "Regalo nº 14", "frase": "Pronto escribiré aquí la pista del regalo nº 14." },
+    { "dia": 15, "emoji": "🎁", "titulo": "Regalo nº 15", "frase": "Pronto escribiré aquí la pista del regalo nº 15." },
+    { "dia": 16, "emoji": "🎁", "titulo": "Regalo nº 16", "frase": "Pronto escribiré aquí la pista del regalo nº 16." },
+    { "dia": 17, "emoji": "🎁", "titulo": "Regalo nº 17", "frase": "Pronto escribiré aquí la pista del regalo nº 17." },
+    { "dia": 18, "emoji": "🎁", "titulo": "Regalo nº 18", "frase": "Pronto escribiré aquí la pista del regalo nº 18." },
+    { "dia": 19, "emoji": "🎁", "titulo": "Regalo nº 19", "frase": "Pronto escribiré aquí la pista del regalo nº 19." },
+    { "dia": 20, "emoji": "🎁", "titulo": "Regalo nº 20", "frase": "Pronto escribiré aquí la pista del regalo nº 20." },
+    { "dia": 21, "emoji": "🎁", "titulo": "Regalo nº 21", "frase": "Pronto escribiré aquí la pista del regalo nº 21." },
+    { "dia": 22, "emoji": "🎁", "titulo": "Regalo nº 22", "frase": "Pronto escribiré aquí la pista del regalo nº 22." },
+    { "dia": 23, "emoji": "🎁", "titulo": "Regalo nº 23", "frase": "Pronto escribiré aquí la pista del regalo nº 23." },
+    { "dia": 24, "emoji": "🎄", "titulo": "Regalo nº 24", "frase": "Pronto escribiré aquí la pista del regalo nº 24." }
+  ]
+}
